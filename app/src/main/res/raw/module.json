@@ -8,5 +8,12 @@
                 { "name": "testdata", "dataType": "REAL", "_unit": "lux" }
             ]
         }
+    ],
+    "dependencies": [
+        [
+            {
+                "name": "light"
+            }
+        ]
     ]
 }
