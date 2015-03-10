@@ -1,12 +1,14 @@
 package dk.aau.cs.psylog.testanalyse;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import android.view.View;
 
 public class MainActivity extends ActionBarActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,4 +38,20 @@ public class MainActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    boolean flag = true;
+    public void onClick(View view) {
+
+        if (flag) {
+            Intent i = new Intent(this, PsyLogService.class);
+            this.startService(i);
+            flag = false;
+        } else {
+            Intent i = new Intent(this, PsyLogService.class);
+            this.stopService(i);
+            flag = true;
+        }
+    }
+
+
 }
