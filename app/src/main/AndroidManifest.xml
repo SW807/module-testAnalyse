@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="psylog.cs.aau.dk.psylog_testanalyse" >
+    package="dk.aau.cs.psylog.testanalyse" >
     <uses-permission android:name="dk.aau.cs.psylog.psylog.READ_DB"/>
     <uses-permission android:name="dk.aau.cs.psylog.psylog.WRITE_DB"/>
     <application

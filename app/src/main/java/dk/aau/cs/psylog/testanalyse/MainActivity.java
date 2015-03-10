@@ -1,4 +1,4 @@
-package psylog.cs.aau.dk.psylog_testanalyse;
+package dk.aau.cs.psylog.testanalyse;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
