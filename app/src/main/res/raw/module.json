@@ -1,0 +1,12 @@
+{
+    "name": "test",
+    "_version": 1.0,
+    "tables": [
+        {
+            "name": "testAnalyse",
+            "columns":[
+                { "name": "testdata", "dataType": "REAL", "_unit": "lux" }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="psylog.cs.aau.dk.psylog_testanalyse" >
+    <uses-permission android:name="dk.aau.cs.psylog.psylog.READ_DB"/>
+    <uses-permission android:name="dk.aau.cs.psylog.psylog.WRITE_DB"/>
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Psylog - TestAnalyse"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <service
+            android:name=".PsyLogService"
+            android:label="Service"
+            android:process=":my_process"
+            android:exported="true">
+        </service>
+    </application>
+
+</manifest>
