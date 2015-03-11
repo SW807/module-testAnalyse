@@ -24,8 +24,7 @@ public class Analysis {
     private long delay;
     private long period;
 
-    public Analysis(Context context)
-    {
+    public Analysis(Context context) {
         resolver = context.getApplicationContext().getContentResolver();
         String uriBase = "content://dk.aau.cs.psylog.psylog";
         read = Uri.parse(uriBase + "/illuminance");
@@ -35,12 +34,16 @@ public class Analysis {
             @Override
             public void run() {
                 String[] projection = {"lux"};
-                Cursor cursor = resolver.query(read, projection , null, null, null);
+                Cursor cursor = resolver.query(read, projection, null, null, null);
+
                 float report = analyse(cursor);
+
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("testdata", report);
                 resolver.insert(write, contentValues);
+
                 Log.i("TestAnalyse", "avg light readings " + report + " lux");
+
                 String[] projection2 = {"testdata"};
                 LogDatabaseContent(projection2);
             }
@@ -65,29 +68,26 @@ public class Analysis {
 
     public float analyse(Cursor cursor) {
         List<Float> content = new ArrayList<Float>();
-        if (cursor.moveToFirst())
-        {
+        if (cursor.moveToFirst()) {
             do {
                 float result = cursor.getFloat(0);
                 content.add(result);
             } while (cursor.moveToNext());
         }
 
-        if (!content.isEmpty())
-        {
+        if (!content.isEmpty()) {
             float sum = 0;
             int j = 0;
-            for (; j < content.size(); j++)
-            {
+            for (; j < content.size(); j++) {
                 sum += content.get(j);
             }
-            float output = sum / (float)j;
+            float output = sum / (float) j;
             return output;
         }
         return 0;
     }
 
-    public void startAnalysis(){
+    public void startAnalysis() {
         if (timer == null) {
             timer = new Timer();
         }
@@ -95,13 +95,13 @@ public class Analysis {
         timer.schedule(timerTask, delay, period);
     }
 
-    public void stopAnalysis(){
+    public void stopAnalysis() {
         timer.cancel();
         timer.purge();
     }
 
     public void analysisParameters(Intent intent) {
-        period = intent.getIntExtra("period",1000);
-        delay = intent.getIntExtra("delay",0);
+        period = intent.getIntExtra("period", 1000);
+        delay = intent.getIntExtra("delay", 0);
     }
 }
