@@ -42,21 +42,28 @@ public class Analysis {
                 resolver.insert(write, contentValues);
                 Log.i("TestAnalyse", "avg light readings " + report + " lux");
                 String[] projection2 = {"testdata"};
-                Cursor cursor2 = resolver.query(write, projection2, null, null, null);
-                if (cursor2.moveToFirst())
-                {
-                    Log.i("test", "starting reads");
-                    do {
-                        float result = cursor2.getFloat(0);
-                        Log.i("test", "Read from analysis module: " + result);
-                    } while (cursor2.moveToNext());
-                }
+                LogDatabaseContent(projection2);
             }
         };
     }
 
-    public float analyse(Cursor cursor)
-    {
+    /**
+     * Log to database for debugging purposes
+     *
+     * @param projection2
+     */
+    private void LogDatabaseContent(String[] projection2) {
+        Cursor cursor2 = resolver.query(write, projection2, null, null, null);
+        if (cursor2.moveToFirst()) {
+            Log.i("test", "starting reads");
+            do {
+                float result = cursor2.getFloat(0);
+                Log.i("test", "Read from analysis module: " + result);
+            } while (cursor2.moveToNext());
+        }
+    }
+
+    public float analyse(Cursor cursor) {
         List<Float> content = new ArrayList<Float>();
         if (cursor.moveToFirst())
         {
