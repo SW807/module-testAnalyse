@@ -5,7 +5,7 @@ android {
     buildToolsVersion "21.1.2"
 
     defaultConfig {
-        applicationId "dk.aau.cs.psylog.testanalyse"
+        applicationId "dk.aau.cs.psylog.analysis.testanalyse"
         minSdkVersion 15
         targetSdkVersion 21
         versionCode 1

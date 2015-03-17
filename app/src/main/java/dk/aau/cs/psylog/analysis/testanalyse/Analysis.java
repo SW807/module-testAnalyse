@@ -1,4 +1,4 @@
-package dk.aau.cs.psylog.testanalyse;
+package dk.aau.cs.psylog.analysis.testanalyse;
 
 import android.content.ContentResolver;
 import android.content.ContentValues;
