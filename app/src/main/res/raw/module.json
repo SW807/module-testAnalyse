@@ -12,7 +12,8 @@
     "dependencies": [
         [
             {
-                "name": "light"
+                "name": "light",
+                "version": 1.0
             }
         ]
     ]
