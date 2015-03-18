@@ -13,6 +13,8 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import dk.aau.cs.psylog.module_lib.DBAccessContract;
+
 public class Analysis {
 
     private ContentResolver resolver;
@@ -26,9 +28,8 @@ public class Analysis {
 
     public Analysis(Context context) {
         resolver = context.getApplicationContext().getContentResolver();
-        String uriBase = "content://dk.aau.cs.psylog.psylog";
-        read = Uri.parse(uriBase + "/illuminance");
-        write = Uri.parse(uriBase + "/testAnalyse");
+        read = Uri.parse(DBAccessContract.DBACCESS_CONTENTPROVIDER + "light_illuminance");
+        write = Uri.parse(DBAccessContract.DBACCESS_CONTENTPROVIDER + "testanalyse_testanalyse");
 
         timerTask = new TimerTask() {
             @Override

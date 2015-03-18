@@ -27,7 +27,7 @@ public class PsyLogService extends Service {
     {
         analysis.analysisParameters(intent);
         analysis.startAnalysis();
-        return Service.START_NOT_STICKY;
+        return Service.START_STICKY;
     }
 
     @Override
